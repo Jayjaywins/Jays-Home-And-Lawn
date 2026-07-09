@@ -1,0 +1,24 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/gallery"
+public_folder: "/images/gallery"
+
+collections:
+  - name: "gallery"
+    label: "Photo Gallery"
+    files:
+      - file: "gallery/gallery.json"
+        label: "Before & After Gallery"
+        name: "gallery"
+        fields:
+          - label: "Jobs"
+            name: "jobs"
+            widget: "list"
+            label_singular: "Job Photo"
+            summary: "{{title}}"
+            fields:
+              - { label: "Title / Location", name: "title", widget: "string" }
+              - { label: "Before Photo", name: "before", widget: "image" }
+              - { label: "After Photo", name: "after", widget: "image" }
