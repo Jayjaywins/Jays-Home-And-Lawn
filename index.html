@@ -3,7 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jay's Home &amp; Lawn — Reliable. Professional. Done Right.</title>
+<title>Jay's Home & Lawn | Lawn Care in Rowan County, NC</title>
+<meta name="description" content="Reliable weekly & bi-weekly lawn mowing, edging, trimming & blowing in Rowan County, NC — Kannapolis, Concord, China Grove, Landis, Salisbury & Enochville. Fully insured. Free quotes.">
+<link rel="canonical" href="https://jayshomeandlawn.com/">
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+<meta name="theme-color" content="#17301F">
+
+<!-- Open Graph / social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Jay's Home & Lawn">
+<meta property="og:title" content="Jay's Home & Lawn | Lawn Care in Rowan County, NC">
+<meta property="og:description" content="Reliable weekly & bi-weekly lawn mowing, edging, trimming & blowing in Rowan County, NC. Fully insured. Free quotes.">
+<meta property="og:image" content="https://jayshomeandlawn.com/icon-512.png">
+<meta property="og:url" content="https://jayshomeandlawn.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jay's Home & Lawn | Lawn Care in Rowan County, NC">
+<meta name="twitter:description" content="Reliable weekly & bi-weekly lawn mowing, edging, trimming & blowing in Rowan County, NC. Fully insured. Free quotes.">
+<meta name="twitter:image" content="https://jayshomeandlawn.com/icon-512.png">
+
+<!-- Structured data for Google (service-area local business, no storefront) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Jay's Home & Lawn",
+  "image": "https://jayshomeandlawn.com/icon-512.png",
+  "url": "https://jayshomeandlawn.com/",
+  "telephone": "+17049992808",
+  "priceRange": "$$",
+  "areaServed": [
+    { "@type": "City", "name": "Kannapolis, NC" },
+    { "@type": "City", "name": "Concord, NC" },
+    { "@type": "City", "name": "China Grove, NC" },
+    { "@type": "City", "name": "Landis, NC" },
+    { "@type": "City", "name": "Salisbury, NC" },
+    { "@type": "City", "name": "Enochville, NC" },
+    { "@type": "AdministrativeArea", "name": "Rowan County, NC" }
+  ],
+  "sameAs": [
+    "https://share.google/OpCtmdGiNyFpPJTf9"
+  ],
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lawn Mowing" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Weed Trimming" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Edging" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Blowing / Cleanup" } }
+  ]
+}
+</script>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap');
 
@@ -152,10 +203,14 @@
   .prep-grid li{display:flex;gap:10px;font-size:0.9rem;color:rgba(255,255,255,0.9);}
   .prep-grid li::before{content:"✓";color:var(--lime);font-weight:700;flex-shrink:0;}
 
-  /* ---------- Testimonial ---------- */
+  /* ---------- Testimonial / Reviews ---------- */
   .testimonial-strip{background:var(--dark);color:var(--white);padding:60px 0;}
-  .testimonial-strip blockquote{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.25rem,2.6vw,1.6rem);max-width:760px;line-height:1.35;}
-  .testimonial-strip cite{display:block;margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;font-style:normal;color:var(--lime);}
+  .review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  .review-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:24px;}
+  .review-card p{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;line-height:1.4;color:var(--white);margin-bottom:14px;}
+  .review-card cite{font-family:'JetBrains Mono',monospace;font-size:0.78rem;font-style:normal;color:var(--lime);}
+  .review-cta{margin-top:32px;display:flex;flex-direction:column;gap:8px;align-items:flex-start;}
+  .review-cta-note{font-size:0.85rem;color:rgba(255,255,255,0.6);}
 
   /* ---------- Contact ---------- */
   .contact-section{background:#F1EEE2;}
@@ -193,6 +248,7 @@
     .meet-photo{margin:0 auto;}
     .prep-grid{grid-template-columns:1fr;}
     .ba-grid{grid-template-columns:1fr;}
+    .review-grid{grid-template-columns:1fr;}
   }
   @media (max-width:640px){
     .nav-links{display:none;}
@@ -395,12 +451,17 @@
   </div>
 </section>
 
-<section class="testimonial-strip">
+<section id="reviews" class="testimonial-strip">
   <div class="wrap">
-    <blockquote>
-      "Jay's crew shows up on time, every time, and my lawn has never looked better. Easiest yes in my whole home budget."
-      <cite>— A Happy Customer, Rowan County</cite>
-    </blockquote>
+    <span class="section-eyebrow" style="color:var(--lime);">What Customers Say</span>
+    <h2 style="color:var(--white);font-size:clamp(1.65rem,3.2vw,2.2rem);margin-bottom:28px;">Real feedback from real yards</h2>
+    <div class="review-grid" id="reviewGrid">
+      <p class="ba-loading" style="color:rgba(255,255,255,0.6);">Loading reviews…</p>
+    </div>
+    <div class="review-cta">
+      <a href="https://share.google/OpCtmdGiNyFpPJTf9" target="_blank" rel="noopener" class="btn btn-lime">Read &amp; Leave a Google Review</a>
+      <p class="review-cta-note">We're just getting started on Google — be one of our first reviews!</p>
+    </div>
   </div>
 </section>
 
@@ -412,34 +473,7 @@
       <p>The short answers. Call or text 704-999-2808 if yours isn't here.</p>
     </div>
     <div class="faq-list" id="faqList">
-      <div class="faq-item open">
-        <button class="faq-q">When will you arrive?<span class="icon">+</span></button>
-        <div class="faq-a"><p>You'll get an estimated arrival window. We do our best to stay within it, though weather, traffic, or prior jobs can occasionally cause slight delays.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">How often will you service my lawn?<span class="icon">+</span></button>
-        <div class="faq-a"><p>We offer weekly and bi-weekly service, and you can adjust, pause, or cancel anytime with a quick message.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">What should I do before you arrive?<span class="icon">+</span></button>
-        <div class="faq-a"><p>Unlock gates, secure pets, and clear toys, hoses, and other obstacles from the lawn. Please also mark any sprinkler heads or hidden hazards.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">What if my grass is really tall?<span class="icon">+</span></button>
-        <div class="faq-a"><p>Significantly overgrown lawns may need extra time, multiple passes, or a first-cut service instead of a standard mow — we'll always confirm pricing with you first.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Do I need to be home?<span class="icon">+</span></button>
-        <div class="faq-a"><p>Not at all — as long as gates are unlocked and pets are secured, we can service your property while you're away.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">How do I pay?<span class="icon">+</span></button>
-        <div class="faq-a"><p>Payment is due on completion of service. We accept card, cash, and Cash App, with easy online payment options available.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">What if I'm not happy with the service?<span class="icon">+</span></button>
-        <div class="faq-a"><p>Let us know within 24 hours and we'll make it right. We take pride in every property we service.</p></div>
-      </div>
+      <p class="ba-loading">Loading FAQ…</p>
     </div>
 
     <div class="prep-band">
@@ -539,14 +573,54 @@
     navLinks.style.borderBottom = '1px solid rgba(23,48,31,0.08)';
   });
 
-  document.querySelectorAll('.faq-q').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.closest('.faq-item');
-      const wasOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!wasOpen) item.classList.add('open');
+  // ---------- FAQ (CMS-driven) ----------
+  fetch('/faq/faq.json')
+    .then(res => { if (!res.ok) throw new Error('FAQ data not found'); return res.json(); })
+    .then(data => {
+      const list = document.getElementById('faqList');
+      const items = (data && data.items) || [];
+      if (!items.length) { list.innerHTML = '<p class="ba-loading">No questions yet.</p>'; return; }
+      list.innerHTML = items.map((item, i) => `
+        <div class="faq-item ${i === 0 ? 'open' : ''}">
+          <button class="faq-q">${item.question}<span class="icon">+</span></button>
+          <div class="faq-a"><p>${item.answer}</p></div>
+        </div>
+      `).join('');
+      list.querySelectorAll('.faq-q').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = btn.closest('.faq-item');
+          const wasOpen = item.classList.contains('open');
+          list.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+          if (!wasOpen) item.classList.add('open');
+        });
+      });
+    })
+    .catch(() => {
+      document.getElementById('faqList').innerHTML =
+        '<p class="ba-loading">FAQ will appear here once added via the /admin manager.</p>';
     });
-  });
+
+  // ---------- Reviews / Testimonials (CMS-driven) ----------
+  fetch('/testimonials/testimonials.json')
+    .then(res => { if (!res.ok) throw new Error('Testimonials data not found'); return res.json(); })
+    .then(data => {
+      const grid = document.getElementById('reviewGrid');
+      const items = (data && data.items) || [];
+      if (!items.length) {
+        grid.innerHTML = '<p class="ba-loading" style="color:rgba(255,255,255,0.6);">No reviews added yet — check back soon.</p>';
+        return;
+      }
+      grid.innerHTML = items.map(item => `
+        <div class="review-card">
+          <p>"${item.quote}"</p>
+          <cite>— ${item.author || 'Verified Customer'}</cite>
+        </div>
+      `).join('');
+    })
+    .catch(() => {
+      document.getElementById('reviewGrid').innerHTML =
+        '<p class="ba-loading" style="color:rgba(255,255,255,0.6);">Reviews will appear here once added via the /admin manager.</p>';
+    });
 
   // ---------- Before/After gallery ----------
   fetch('/gallery/gallery.json')
