@@ -6,6 +6,88 @@ media_folder: "images/gallery"
 public_folder: "/images/gallery"
 
 collections:
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - file: "settings/settings.json"
+        label: "Phone, Links & Service Area"
+        name: "settings"
+        fields:
+          - { label: "Phone Number (display, e.g. 704-999-2808)", name: "phoneDisplay", widget: "string" }
+          - { label: "Phone Number (call link, e.g. +17049992808)", name: "phoneTel", widget: "string" }
+          - { label: "Yardbook Quote URL", name: "quoteUrl", widget: "string" }
+          - { label: "Yardbook Pay Now URL", name: "payUrl", widget: "string" }
+          - { label: "Google Review URL", name: "googleReviewUrl", widget: "string" }
+          - { label: "Website (display text)", name: "website", widget: "string" }
+          - { label: "Service Area (display text)", name: "serviceArea", widget: "text" }
+
+  - name: "team"
+    label: "Team"
+    files:
+      - file: "team/team.json"
+        label: "Team Members"
+        name: "team"
+        fields:
+          - label: "Members"
+            name: "members"
+            widget: "list"
+            label_singular: "Team Member"
+            summary: "{{name}} — {{role}}"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Photo", name: "photo", widget: "image" }
+              - { label: "Bio", name: "bio", widget: "text" }
+
+  - name: "pricing"
+    label: "Pricing"
+    files:
+      - file: "pricing/pricing.json"
+        label: "Services & Pricing"
+        name: "pricing"
+        fields:
+          - label: "Included Services (shown on every visit)"
+            name: "included"
+            widget: "list"
+            label_singular: "Service"
+            summary: "{{name}}"
+            fields:
+              - { label: "Icon (emoji)", name: "icon", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Description", name: "description", widget: "string" }
+          - label: "Pricing by Property Size"
+            name: "tiers"
+            widget: "list"
+            label_singular: "Tier"
+            summary: "{{size}} — {{price}}"
+            fields:
+              - { label: "Property Size", name: "size", widget: "string" }
+              - { label: "Price", name: "price", widget: "string" }
+          - label: "Maintenance Cut Card"
+            name: "maintenance"
+            widget: "object"
+            fields:
+              - { label: "Tag", name: "tag", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Price", name: "price", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - label: "First Cut / Overgrown Card"
+            name: "firstCut"
+            widget: "object"
+            fields:
+              - { label: "Tag", name: "tag", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Price", name: "price", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - label: "Overgrowth Pricing Tiers"
+            name: "overgrowth"
+            widget: "list"
+            label_singular: "Tier"
+            summary: "{{height}} — {{pct}}"
+            fields:
+              - { label: "Grass Height", name: "height", widget: "string" }
+              - { label: "Adjustment", name: "pct", widget: "string" }
+
   - name: "gallery"
     label: "Photo Gallery"
     files:

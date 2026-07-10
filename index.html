@@ -177,14 +177,14 @@
   .ba-range{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;-webkit-appearance:none;appearance:none;}
   .ba-caption{font-size:0.9rem;font-weight:600;color:var(--dark);}
 
-  /* ---------- Meet Jay ---------- */
-  .meet-grid{display:grid;grid-template-columns:220px 1fr;gap:36px;align-items:center;}
-  .meet-photo{width:220px;height:220px;border-radius:50%;overflow:hidden;border:4px solid var(--white);box-shadow:0 10px 30px rgba(23,48,31,0.15);}
-  .meet-photo img{width:100%;height:100%;object-fit:cover;}
-  .meet-text h2{font-size:1.7rem;margin-bottom:12px;}
-  .meet-text p{color:#4A594B;font-size:0.98rem;margin-bottom:10px;}
-  .meet-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
-  .badge{font-family:'JetBrains Mono',monospace;font-size:0.76rem;background:#EEF3E4;color:var(--mid);padding:6px 12px;border-radius:100px;border:1px solid rgba(60,110,65,0.25);}
+  /* ---------- Team ---------- */
+  .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .team-card{background:var(--white);border:1px solid rgba(23,48,31,0.1);border-radius:12px;padding:28px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;}
+  .team-photo{width:120px;height:120px;border-radius:50%;overflow:hidden;border:4px solid var(--bg);box-shadow:0 8px 20px rgba(23,48,31,0.12);margin-bottom:10px;}
+  .team-photo img{width:100%;height:100%;object-fit:cover;}
+  .team-card h3{font-size:1.05rem;}
+  .team-role{font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--mid);margin-bottom:8px;}
+  .team-card p{font-size:0.88rem;color:#4A594B;}
 
   /* ---------- FAQ ---------- */
   .faq-list{display:flex;flex-direction:column;gap:10px;}
@@ -244,8 +244,7 @@
     .contact-grid{grid-template-columns:1fr;}
     .cut-compare{grid-template-columns:1fr;}
     .overgrowth-grid{grid-template-columns:repeat(2,1fr);}
-    .meet-grid{grid-template-columns:1fr;text-align:center;}
-    .meet-photo{margin:0 auto;}
+    .team-grid{grid-template-columns:1fr 1fr;}
     .prep-grid{grid-template-columns:1fr;}
     .ba-grid{grid-template-columns:1fr;}
     .review-grid{grid-template-columns:1fr;}
@@ -254,6 +253,7 @@
     .nav-links{display:none;}
     .menu-toggle{display:block;}
     .included-band{grid-template-columns:1fr;}
+    .team-grid{grid-template-columns:1fr;}
     .form-row{grid-template-columns:1fr;}
     .hero{padding:76px 0 56px;}
     .phone-link{display:none;}
@@ -285,13 +285,14 @@
     <ul class="nav-links">
       <li><a href="#services">Services &amp; Pricing</a></li>
       <li><a href="#gallery">Our Work</a></li>
+      <li><a href="#team">Team</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-right">
-      <a class="phone-link" href="tel:+17049992808">704-999-2808</a>
-      <a href="https://www.yardbook.com/304672/pay_now" target="_blank" rel="noopener" class="btn btn-outline">Pay Now</a>
-      <a href="https://www.yardbook.com/new_quote/51eb2000b89ad85c307a32e1ae3b168fe5715d6c" target="_blank" rel="noopener" class="btn btn-primary">Get a Free Quote</a>
+      <a class="phone-link js-phone-tel js-phone-text" href="tel:+17049992808">704-999-2808</a>
+      <a href="https://www.yardbook.com/304672/pay_now" target="_blank" rel="noopener" class="btn btn-outline js-pay-url">Pay Now</a>
+      <a href="https://www.yardbook.com/new_quote/51eb2000b89ad85c307a32e1ae3b168fe5715d6c" target="_blank" rel="noopener" class="btn btn-primary js-quote-url">Get a Free Quote</a>
       <button class="menu-toggle" aria-label="Menu">☰</button>
     </div>
   </nav>
@@ -304,8 +305,8 @@
       <h1>The difference is in the details.</h1>
       <p>Jay's Home &amp; Lawn keeps your yard mowed, trimmed, and healthy all season — reliable service, straightforward pricing, no surprises.</p>
       <div class="hero-ctas">
-        <a href="https://www.yardbook.com/new_quote/51eb2000b89ad85c307a32e1ae3b168fe5715d6c" target="_blank" rel="noopener" class="btn btn-lime">Request a Free Quote</a>
-        <a href="tel:+17049992808" class="btn btn-outline" style="border-color:#fff;color:#fff;">Call or Text 704-999-2808</a>
+        <a href="https://www.yardbook.com/new_quote/51eb2000b89ad85c307a32e1ae3b168fe5715d6c" target="_blank" rel="noopener" class="btn btn-lime js-quote-url">Request a Free Quote</a>
+        <a href="tel:+17049992808" class="btn btn-outline js-phone-tel" style="border-color:#fff;color:#fff;">Call or Text <span class="js-phone-text">704-999-2808</span></a>
       </div>
       <ul class="trust-row">
         <li>Fully insured</li>
@@ -324,71 +325,8 @@
       <p>Every standard mow includes the same four things, done right — priced by property size with free estimates for anything larger or custom.</p>
     </div>
 
-    <div class="included-band">
-      <div class="included-item">
-        <div class="included-icon">🌱</div>
-        <h4>Lawn Mowing</h4>
-        <p>A clean, even cut for a healthy, great-looking lawn.</p>
-      </div>
-      <div class="included-item">
-        <div class="included-icon">🔧</div>
-        <h4>Weed Trimming</h4>
-        <p>Neat trimming around fences, beds, and hard-to-reach areas.</p>
-      </div>
-      <div class="included-item">
-        <div class="included-icon">📐</div>
-        <h4>Edging</h4>
-        <p>Crisp, defined edges along walks, drives, and landscape beds.</p>
-      </div>
-      <div class="included-item">
-        <div class="included-icon">💨</div>
-        <h4>Blowing</h4>
-        <p>Walkways, driveways, and patios cleared for a finished look.</p>
-      </div>
-    </div>
-
-    <table class="pricing-table">
-      <thead>
-        <tr><th>Property size</th><th style="text-align:right;">Starting at</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Up to 1/8 acre</td><td class="amount">$30</td></tr>
-        <tr><td>Up to 1/4 acre</td><td class="amount">$35</td></tr>
-        <tr><td>Up to 1/3 acre</td><td class="amount">$40</td></tr>
-        <tr><td>Up to 1/2 acre</td><td class="amount">$50</td></tr>
-        <tr><td>Up to 3/4 acre</td><td class="amount">$65</td></tr>
-        <tr><td>Over 3/4 acre</td><td class="amount">Call for quote</td></tr>
-      </tbody>
-    </table>
-    <div class="pricing-note">
-      <span>💡</span>
-      <span>Not sure of your lawn size? A 1/4 acre lot is roughly 75' × 145' — a typical suburban yard. Call or text us and we're happy to measure it for you.</span>
-    </div>
-
-    <div class="cut-compare">
-      <div class="cut-card">
-        <span class="tag">Regular Weekly / Bi-Weekly</span>
-        <h4>Maintenance Cut</h4>
-        <div class="price mono">$35+</div>
-        <p>For lawns kept at a manageable height with regular service — our most common visit.</p>
-      </div>
-      <div class="cut-card warn">
-        <span class="tag">One-Time Initial Service</span>
-        <h4>First Cut / Overgrown</h4>
-        <div class="price mono">$55+</div>
-        <p>Tall, overgrown grass needs multiple passes and extra cleanup, so first cuts are quoted separately. Get on a regular schedule afterward to keep costs down.</p>
-      </div>
-    </div>
-
-    <div style="margin-top:36px;">
-      <h3 style="font-size:1.1rem;margin-bottom:6px;">Overgrowth pricing</h3>
-      <p style="font-size:0.9rem;color:#4A594B;margin-bottom:4px;">For lawns beyond our standard mowing height, pricing adjusts based on grass height to account for extra time and equipment wear.</p>
-      <div class="overgrowth-grid">
-        <div class="og-tile"><div class="h">Under 6"</div><div class="pct">Standard</div></div>
-        <div class="og-tile"><div class="h">6"–12"</div><div class="pct">+25%</div></div>
-        <div class="og-tile"><div class="h">12"–18"</div><div class="pct">+50%</div></div>
-        <div class="og-tile"><div class="h">Over 18"</div><div class="pct">Custom</div></div>
-      </div>
+    <div id="pricingContent">
+      <p class="ba-loading">Loading pricing…</p>
     </div>
   </div>
 </section>
@@ -432,21 +370,14 @@
   </div>
 </section>
 
-<section style="background:#F1EEE2;">
-  <div class="wrap meet-grid">
-    <div class="meet-photo">
-      <img src="jay-headshot.jpg" alt="Jay, owner of Jay's Home and Lawn">
+<section id="team" style="background:#F1EEE2;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">Meet The Team</span>
+      <h2>The people behind the mower</h2>
     </div>
-    <div class="meet-text">
-      <span class="section-eyebrow">Meet Your Lawn Guy</span>
-      <h2>Hey, I'm Jay.</h2>
-      <p>I started Jay's Home &amp; Lawn to bring reliable, no-nonsense lawn care to Rowan County — the kind of service where the crew shows up when they say they will and the yard looks better every single time.</p>
-      <p>Every property gets treated like our own: clean cuts, sharp edges, and a full walkthrough before we call it done.</p>
-      <div class="meet-badges">
-        <span class="badge">Fully Insured</span>
-        <span class="badge">Locally Owned</span>
-        <span class="badge">Satisfaction Focused</span>
-      </div>
+    <div class="team-grid" id="teamGrid">
+      <p class="ba-loading">Loading team…</p>
     </div>
   </div>
 </section>
@@ -459,7 +390,7 @@
       <p class="ba-loading" style="color:rgba(255,255,255,0.6);">Loading reviews…</p>
     </div>
     <div class="review-cta">
-      <a href="https://share.google/OpCtmdGiNyFpPJTf9" target="_blank" rel="noopener" class="btn btn-lime">Read &amp; Leave a Google Review</a>
+      <a href="https://share.google/OpCtmdGiNyFpPJTf9" target="_blank" rel="noopener" class="btn btn-lime js-review-url">Read &amp; Leave a Google Review</a>
       <p class="review-cta-note">We're just getting started on Google — be one of our first reviews!</p>
     </div>
   </div>
@@ -470,7 +401,7 @@
     <div class="section-head">
       <span class="section-eyebrow">FAQ</span>
       <h2>Common questions</h2>
-      <p>The short answers. Call or text 704-999-2808 if yours isn't here.</p>
+      <p>The short answers. Call or text <span class="js-phone-text">704-999-2808</span> if yours isn't here.</p>
     </div>
     <div class="faq-list" id="faqList">
       <p class="ba-loading">Loading FAQ…</p>
@@ -500,15 +431,15 @@
         <div class="info-list">
           <div class="info-item">
             <div class="info-icon">📞</div>
-            <div><h4>Call or Text</h4><p><a href="tel:+17049992808">704-999-2808</a></p></div>
+            <div><h4>Call or Text</h4><p><a class="js-phone-tel js-phone-text" href="tel:+17049992808">704-999-2808</a></p></div>
           </div>
           <div class="info-item">
             <div class="info-icon">🌐</div>
-            <div><h4>Website</h4><p>JaysHomeAndLawn.com</p></div>
+            <div><h4>Website</h4><p class="js-website-text">JaysHomeAndLawn.com</p></div>
           </div>
           <div class="info-item">
             <div class="info-icon">📍</div>
-            <div><h4>Service Area</h4><p>Rowan County &amp; surrounding areas — Kannapolis, Concord, China Grove, Landis, Salisbury, Enochville, and more.</p></div>
+            <div><h4>Service Area</h4><p class="js-service-area-text">Rowan County &amp; surrounding areas — Kannapolis, Concord, China Grove, Landis, Salisbury, Enochville, and more.</p></div>
           </div>
           <div class="info-item">
             <div class="info-icon">🛡️</div>
@@ -521,13 +452,13 @@
         <div class="quote-card-icon">🌿</div>
         <h3>Request your free quote</h3>
         <p>Tell us about your property on our secure quote form — it takes about a minute, and your request lands straight in our schedule.</p>
-        <a href="https://www.yardbook.com/new_quote/51eb2000b89ad85c307a32e1ae3b168fe5715d6c" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;text-align:center;">Get a Free Quote →</a>
+        <a href="https://www.yardbook.com/new_quote/51eb2000b89ad85c307a32e1ae3b168fe5715d6c" target="_blank" rel="noopener" class="btn btn-primary js-quote-url" style="width:100%;text-align:center;">Get a Free Quote →</a>
 
         <div class="quote-card-divider"></div>
 
         <h3>Already a customer?</h3>
         <p>Pay your invoice securely online, any time.</p>
-        <a href="https://www.yardbook.com/304672/pay_now" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;text-align:center;">Pay Now →</a>
+        <a href="https://www.yardbook.com/304672/pay_now" target="_blank" rel="noopener" class="btn btn-outline js-pay-url" style="width:100%;text-align:center;">Pay Now →</a>
       </div>
     </div>
   </div>
@@ -546,6 +477,7 @@
       <ul class="footer-links">
         <li><a href="#services">Services</a></li>
         <li><a href="#gallery">Our Work</a></li>
+        <li><a href="#team">Team</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -572,6 +504,97 @@
     navLinks.style.padding = '18px 24px';
     navLinks.style.borderBottom = '1px solid rgba(23,48,31,0.08)';
   });
+
+  // ---------- Site Settings (phone, links, service area) ----------
+  fetch('/settings/settings.json')
+    .then(res => { if (!res.ok) throw new Error('Settings not found'); return res.json(); })
+    .then(s => {
+      document.querySelectorAll('.js-phone-text').forEach(el => { el.textContent = s.phoneDisplay; });
+      document.querySelectorAll('.js-phone-tel').forEach(el => { el.href = 'tel:' + s.phoneTel; });
+      document.querySelectorAll('.js-quote-url').forEach(el => { el.href = s.quoteUrl; });
+      document.querySelectorAll('.js-pay-url').forEach(el => { el.href = s.payUrl; });
+      document.querySelectorAll('.js-review-url').forEach(el => { el.href = s.googleReviewUrl; });
+      document.querySelectorAll('.js-website-text').forEach(el => { el.textContent = s.website; });
+      document.querySelectorAll('.js-service-area-text').forEach(el => { el.textContent = s.serviceArea; });
+    })
+    .catch(() => { /* keep hardcoded fallback values already in the HTML */ });
+
+  // ---------- Team (CMS-driven) ----------
+  fetch('/team/team.json')
+    .then(res => { if (!res.ok) throw new Error('Team data not found'); return res.json(); })
+    .then(data => {
+      const grid = document.getElementById('teamGrid');
+      const members = (data && data.members) || [];
+      if (!members.length) { grid.innerHTML = '<p class="ba-loading">Team info coming soon.</p>'; return; }
+      grid.innerHTML = members.map(m => `
+        <div class="team-card">
+          <div class="team-photo"><img src="${m.photo}" alt="${m.name}"></div>
+          <h3>${m.name}</h3>
+          <div class="team-role">${m.role || ''}</div>
+          <p>${m.bio || ''}</p>
+        </div>
+      `).join('');
+    })
+    .catch(() => {
+      document.getElementById('teamGrid').innerHTML =
+        '<p class="ba-loading">Team info will appear here once added via the /admin manager.</p>';
+    });
+
+  // ---------- Pricing (CMS-driven) ----------
+  fetch('/pricing/pricing.json')
+    .then(res => { if (!res.ok) throw new Error('Pricing data not found'); return res.json(); })
+    .then(p => {
+      const el = document.getElementById('pricingContent');
+      const included = (p.included || []).map(i => `
+        <div class="included-item">
+          <div class="included-icon">${i.icon || ''}</div>
+          <h4>${i.name}</h4>
+          <p>${i.description || ''}</p>
+        </div>
+      `).join('');
+      const tiers = (p.tiers || []).map(t => `
+        <tr><td>${t.size}</td><td class="amount">${t.price}</td></tr>
+      `).join('');
+      const overgrowth = (p.overgrowth || []).map(o => `
+        <div class="og-tile"><div class="h">${o.height}</div><div class="pct">${o.pct}</div></div>
+      `).join('');
+      const m = p.maintenance || {};
+      const f = p.firstCut || {};
+      el.innerHTML = `
+        <div class="included-band">${included}</div>
+        <table class="pricing-table">
+          <thead><tr><th>Property size</th><th style="text-align:right;">Starting at</th></tr></thead>
+          <tbody>${tiers}</tbody>
+        </table>
+        <div class="pricing-note">
+          <span>💡</span>
+          <span>Not sure of your lawn size? A 1/4 acre lot is roughly 75' × 145' — a typical suburban yard. Call or text us and we're happy to measure it for you.</span>
+        </div>
+        <div class="cut-compare">
+          <div class="cut-card">
+            <span class="tag">${m.tag || ''}</span>
+            <h4>${m.title || ''}</h4>
+            <div class="price mono">${m.price || ''}</div>
+            <p>${m.description || ''}</p>
+          </div>
+          <div class="cut-card warn">
+            <span class="tag">${f.tag || ''}</span>
+            <h4>${f.title || ''}</h4>
+            <div class="price mono">${f.price || ''}</div>
+            <p>${f.description || ''}</p>
+          </div>
+        </div>
+        <div style="margin-top:36px;">
+          <h3 style="font-size:1.1rem;margin-bottom:6px;">Overgrowth pricing</h3>
+          <p style="font-size:0.9rem;color:#4A594B;margin-bottom:4px;">For lawns beyond our standard mowing height, pricing adjusts based on grass height to account for extra time and equipment wear.</p>
+          <div class="overgrowth-grid">${overgrowth}</div>
+        </div>
+      `;
+    })
+    .catch(() => {
+      document.getElementById('pricingContent').innerHTML =
+        '<p class="ba-loading">Pricing will appear here once added via the /admin manager.</p>';
+    });
 
   // ---------- FAQ (CMS-driven) ----------
   fetch('/faq/faq.json')
