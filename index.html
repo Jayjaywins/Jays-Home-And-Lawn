@@ -89,6 +89,10 @@
     background:linear-gradient(180deg, rgba(23,48,31,0.15) 0%, rgba(23,48,31,0.55) 100%);
   }
 
+  /* ---------- Announcement banner ---------- */
+  .announce-bar{display:none;background:var(--dark);color:var(--lime);text-align:center;padding:9px 24px;font-family:'JetBrains Mono',monospace;font-size:0.82rem;letter-spacing:0.01em;}
+  .announce-bar.show{display:block;}
+
   /* ---------- Header ---------- */
   header{position:sticky;top:0;z-index:50;background:rgba(250,249,243,0.94);backdrop-filter:blur(6px);border-bottom:1px solid rgba(23,48,31,0.08);}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;}
@@ -106,6 +110,8 @@
   .btn-outline:hover{background:var(--dark);color:var(--white);}
   .btn-lime{background:var(--lime);color:var(--dark);}
   .btn-lime:hover{background:var(--bright);color:var(--white);}
+  .short-label{display:none;}
+  .mobile-pay-link{display:none;}
   .menu-toggle{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--dark);}
 
   /* ---------- Hero ---------- */
@@ -258,6 +264,12 @@
     .hero{padding:76px 0 56px;}
     .phone-link{display:none;}
     .pricing-table{font-size:0.85rem;}
+    .nav-pay-btn{display:none;}
+    .mobile-pay-link{display:list-item;}
+    .full-label{display:none;}
+    .short-label{display:inline;}
+    .nav-right{gap:10px;}
+    .nav-right .btn{padding:9px 14px;font-size:0.85rem;}
   }
   @media (prefers-reduced-motion: reduce){ *{transition:none !important; scroll-behavior:auto !important;} }
 </style>
@@ -276,6 +288,10 @@
 </head>
 <body>
 
+<div class="announce-bar" id="announceBar">
+  <div class="wrap"><span id="announceText"></span></div>
+</div>
+
 <header>
   <nav class="nav wrap">
     <div class="logo">
@@ -288,11 +304,12 @@
       <li><a href="#team">Team</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li class="mobile-pay-link"><a href="https://www.yardbook.com/304672/pay_now" target="_blank" rel="noopener" class="js-pay-url">Pay Now</a></li>
     </ul>
     <div class="nav-right">
       <a class="phone-link js-phone-tel js-phone-text" href="tel:+17049992808">704-999-2808</a>
-      <a href="https://www.yardbook.com/304672/pay_now" target="_blank" rel="noopener" class="btn btn-outline js-pay-url">Pay Now</a>
-      <a href="https://www.yardbook.com/new_quote/51eb2000b89ad85c307a32e1ae3b168fe5715d6c" target="_blank" rel="noopener" class="btn btn-primary js-quote-url">Get a Free Quote</a>
+      <a href="https://www.yardbook.com/304672/pay_now" target="_blank" rel="noopener" class="btn btn-outline js-pay-url nav-pay-btn">Pay Now</a>
+      <a href="https://www.yardbook.com/new_quote/51eb2000b89ad85c307a32e1ae3b168fe5715d6c" target="_blank" rel="noopener" class="btn btn-primary js-quote-url"><span class="full-label">Get a Free Quote</span><span class="short-label">Quote</span></a>
       <button class="menu-toggle" aria-label="Menu">☰</button>
     </div>
   </nav>
@@ -516,6 +533,10 @@
       document.querySelectorAll('.js-review-url').forEach(el => { el.href = s.googleReviewUrl; });
       document.querySelectorAll('.js-website-text').forEach(el => { el.textContent = s.website; });
       document.querySelectorAll('.js-service-area-text').forEach(el => { el.textContent = s.serviceArea; });
+      if (s.bannerEnabled && s.bannerText) {
+        document.getElementById('announceText').textContent = s.bannerText;
+        document.getElementById('announceBar').classList.add('show');
+      }
     })
     .catch(() => { /* keep hardcoded fallback values already in the HTML */ });
 

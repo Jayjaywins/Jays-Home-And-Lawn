@@ -13,6 +13,8 @@ collections:
         label: "Phone, Links & Service Area"
         name: "settings"
         fields:
+          - { label: "Show Announcement Banner?", name: "bannerEnabled", widget: "boolean", default: false }
+          - { label: "Announcement Banner Text", name: "bannerText", widget: "string", required: false, hint: "e.g. 'Now booking for spring' or 'Closed for the holiday, back Monday'" }
           - { label: "Phone Number (display, e.g. 704-999-2808)", name: "phoneDisplay", widget: "string" }
           - { label: "Phone Number (call link, e.g. +17049992808)", name: "phoneTel", widget: "string" }
           - { label: "Yardbook Quote URL", name: "quoteUrl", widget: "string" }
