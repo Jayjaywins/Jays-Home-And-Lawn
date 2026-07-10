@@ -1,14 +1,14 @@
 {
-  "bannerEnabled": true,
-  "bannerText": "Now booking — limited weekly and bi-weekly slots available!",
-  "phoneDisplay": "704-999-2808",
-  "phoneTel": "+17049992808",
-  "email": "Contact@jayshomeandlawn.com",
-  "quoteUrl": "https://www.yardbook.com/new_quote/51eb2000b89ad85c307a32e1ae3b168fe5715d6c",
-  "payUrl": "https://www.yardbook.com/304672/pay_now",
-  "googleReviewUrl": "https://share.google/OpCtmdGiNyFpPJTf9",
-  "website": "JaysHomeAndLawn.com",
   "serviceArea": "Rowan County & surrounding areas — Kannapolis, Concord, China Grove, Landis, Salisbury, Enochville, and more.",
   "referralEnabled": true,
-  "referralText": "Refer a neighbor and get $10 off your next mow — just have them mention your name when they request a quote."
+  "payUrl": "https://www.yardbook.com/304672/pay_now",
+  "referralText": "Refer a friend or neighbor and get $10 off your next mow — just have them mention your name on file when they request a quote.",
+  "phoneTel": "+17049992808",
+  "quoteUrl": "https://www.yardbook.com/new_quote/51eb2000b89ad85c307a32e1ae3b168fe5715d6c",
+  "phoneDisplay": "704-999-2808",
+  "bannerEnabled": true,
+  "bannerText": "Now booking — limited weekly and bi-weekly slots available!",
+  "website": "JaysHomeAndLawn.com",
+  "email": "Contact@jayshomeandlawn.com",
+  "googleReviewUrl": "https://share.google/OpCtmdGiNyFpPJTf9"
 }
