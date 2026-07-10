@@ -17,11 +17,14 @@ collections:
           - { label: "Announcement Banner Text", name: "bannerText", widget: "string", required: false, hint: "e.g. 'Now booking for spring' or 'Closed for the holiday, back Monday'" }
           - { label: "Phone Number (display, e.g. 704-999-2808)", name: "phoneDisplay", widget: "string" }
           - { label: "Phone Number (call link, e.g. +17049992808)", name: "phoneTel", widget: "string" }
+          - { label: "Email Address", name: "email", widget: "string" }
           - { label: "Yardbook Quote URL", name: "quoteUrl", widget: "string" }
           - { label: "Yardbook Pay Now URL", name: "payUrl", widget: "string" }
           - { label: "Google Review URL", name: "googleReviewUrl", widget: "string" }
           - { label: "Website (display text)", name: "website", widget: "string" }
           - { label: "Service Area (display text)", name: "serviceArea", widget: "text" }
+          - { label: "Show Referral Line?", name: "referralEnabled", widget: "boolean", default: true }
+          - { label: "Referral Text", name: "referralText", widget: "string", required: false }
 
   - name: "team"
     label: "Team"
