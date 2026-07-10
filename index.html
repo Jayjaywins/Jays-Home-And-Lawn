@@ -34,6 +34,7 @@
   "image": "https://jayshomeandlawn.com/icon-512.png",
   "url": "https://jayshomeandlawn.com/",
   "telephone": "+17049992808",
+  "email": "Contact@jayshomeandlawn.com",
   "priceRange": "$$",
   "areaServed": [
     { "@type": "City", "name": "Kannapolis, NC" },
@@ -217,6 +218,12 @@
   .review-card cite{font-family:'JetBrains Mono',monospace;font-size:0.78rem;font-style:normal;color:var(--lime);}
   .review-cta{margin-top:32px;display:flex;flex-direction:column;gap:8px;align-items:flex-start;}
   .review-cta-note{font-size:0.85rem;color:rgba(255,255,255,0.6);}
+
+  /* ---------- Referral strip ---------- */
+  .referral-strip{background:var(--lime);padding:22px 0;}
+  .referral-inner{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;text-align:center;}
+  .referral-icon{font-size:1.3rem;}
+  .referral-inner p{font-family:'Space Grotesk',sans-serif;font-weight:600;color:var(--dark);font-size:1rem;margin:0;}
 
   /* ---------- Contact ---------- */
   .contact-section{background:#F1EEE2;}
@@ -438,6 +445,13 @@
   </div>
 </section>
 
+<section class="referral-strip" id="referralStrip" style="display:none;">
+  <div class="wrap referral-inner">
+    <div class="referral-icon">🌿</div>
+    <p id="referralText"></p>
+  </div>
+</section>
+
 <section id="contact" class="contact-section">
   <div class="wrap">
     <div class="contact-grid">
@@ -449,6 +463,10 @@
           <div class="info-item">
             <div class="info-icon">📞</div>
             <div><h4>Call or Text</h4><p><a class="js-phone-tel js-phone-text" href="tel:+17049992808">704-999-2808</a></p></div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">✉️</div>
+            <div><h4>Email</h4><p><a class="js-email-mailto js-email-text" href="mailto:Contact@jayshomeandlawn.com">Contact@jayshomeandlawn.com</a></p></div>
           </div>
           <div class="info-item">
             <div class="info-icon">🌐</div>
@@ -528,6 +546,8 @@
     .then(s => {
       document.querySelectorAll('.js-phone-text').forEach(el => { el.textContent = s.phoneDisplay; });
       document.querySelectorAll('.js-phone-tel').forEach(el => { el.href = 'tel:' + s.phoneTel; });
+      document.querySelectorAll('.js-email-mailto').forEach(el => { el.href = 'mailto:' + s.email; });
+      document.querySelectorAll('.js-email-text').forEach(el => { el.textContent = s.email; });
       document.querySelectorAll('.js-quote-url').forEach(el => { el.href = s.quoteUrl; });
       document.querySelectorAll('.js-pay-url').forEach(el => { el.href = s.payUrl; });
       document.querySelectorAll('.js-review-url').forEach(el => { el.href = s.googleReviewUrl; });
@@ -536,6 +556,10 @@
       if (s.bannerEnabled && s.bannerText) {
         document.getElementById('announceText').textContent = s.bannerText;
         document.getElementById('announceBar').classList.add('show');
+      }
+      if (s.referralEnabled && s.referralText) {
+        document.getElementById('referralText').textContent = s.referralText;
+        document.getElementById('referralStrip').style.display = 'block';
       }
     })
     .catch(() => { /* keep hardcoded fallback values already in the HTML */ });
