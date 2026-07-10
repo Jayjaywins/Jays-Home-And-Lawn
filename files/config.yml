@@ -1,0 +1,56 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/gallery"
+public_folder: "/images/gallery"
+
+collections:
+  - name: "gallery"
+    label: "Photo Gallery"
+    files:
+      - file: "gallery/gallery.json"
+        label: "Before & After Gallery"
+        name: "gallery"
+        fields:
+          - label: "Jobs"
+            name: "jobs"
+            widget: "list"
+            label_singular: "Job Photo"
+            summary: "{{title}}"
+            fields:
+              - { label: "Title / Location", name: "title", widget: "string" }
+              - { label: "Before Photo", name: "before", widget: "image" }
+              - { label: "After Photo", name: "after", widget: "image" }
+
+  - name: "faq"
+    label: "FAQ"
+    files:
+      - file: "faq/faq.json"
+        label: "Frequently Asked Questions"
+        name: "faq"
+        fields:
+          - label: "Questions"
+            name: "items"
+            widget: "list"
+            label_singular: "Question"
+            summary: "{{question}}"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+
+  - name: "testimonials"
+    label: "Testimonials"
+    files:
+      - file: "testimonials/testimonials.json"
+        label: "Customer Testimonials"
+        name: "testimonials"
+        fields:
+          - label: "Reviews"
+            name: "items"
+            widget: "list"
+            label_singular: "Review"
+            summary: "{{author}}"
+            fields:
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Customer Name / Location", name: "author", widget: "string" }
