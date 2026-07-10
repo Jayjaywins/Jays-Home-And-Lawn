@@ -250,6 +250,8 @@
   .footer-links a:hover{color:var(--lime);}
   .footer-area{font-size:0.82rem;color:rgba(255,255,255,0.6);margin-top:6px;}
   .footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:18px;font-size:0.78rem;color:rgba(255,255,255,0.5);}
+  .footer-badges{display:flex;align-items:center;gap:10px;padding-top:16px;font-size:0.78rem;color:rgba(255,255,255,0.5);}
+  .footer-badges img{opacity:0.9;vertical-align:middle;}
 
   @media (max-width:860px){
     .included-band{grid-template-columns:repeat(2,1fr);}
@@ -517,6 +519,10 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
+    <div class="footer-badges">
+      <span class="footer-badges-label">Verified on:</span>
+      <span id="ls-embed"></span>
+    </div>
     <div class="footer-bottom">
       <span>© 2026 Jay's Home &amp; Lawn. All rights reserved.</span>
       <span>Serving Rowan County, Kannapolis, Concord, China Grove, Landis, Salisbury &amp; Enochville.</span>
@@ -737,6 +743,8 @@
     });
 
 </script>
+
+<script type="text/javascript">(function(){var e;if(window.XMLHttpRequest){e=new XMLHttpRequest}else{e=new ActiveXObject("Microsoft.XMLHTTP")}e.onreadystatechange=function(){if(e.readyState==4&&e.status==200){var t=JSON.parse(e.responseText).data;var n=document.createElement("img");n.setAttribute("src",t.img.src);n.setAttribute("alt",t.img.alt);n.setAttribute("width","175");var r=document.createElement("a");r.setAttribute("href",t.link.href);r.setAttribute("title",t.img.alt);r.setAttribute("target","_blank");r.setAttribute("rel","noopener");r.appendChild(n);var i=document.getElementById("ls-embed");if(i){i.appendChild(r)}}};e.open("GET","https://api.lawnstarter.com/v1/embed?cid=351709",true);e.send()})()</script>
 
 </body>
 </html>
