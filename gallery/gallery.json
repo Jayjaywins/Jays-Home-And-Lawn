@@ -1,9 +1,34 @@
 {
   "jobs": [
     {
-      "before": "/images/gallery/img_2115.jpeg",
-      "after": "/images/gallery/img_2121.jpeg",
-      "title": "Client"
+      "title": "Weekly Mowing — Rowan County",
+      "before": "/images/gallery/job1-before.jpg",
+      "after": "/images/gallery/job1-after.jpg"
+    },
+    {
+      "title": "Overgrown Lawn Transformation — Kannapolis, NC",
+      "before": "/images/gallery/job2-before.jpg",
+      "after": "/images/gallery/job2-after.jpg"
+    },
+    {
+      "title": "Tall Grass Cleanup — Salisbury, NC",
+      "before": "/images/gallery/job3-before.jpg",
+      "after": "/images/gallery/job3-after.jpg"
+    },
+    {
+      "title": "Fenced Yard Mow — Charlotte, NC",
+      "before": "/images/gallery/job4-before.jpg",
+      "after": "/images/gallery/job4-after.jpg"
+    },
+    {
+      "title": "Backyard Maintenance — Davidson, NC",
+      "before": "/images/gallery/job5-before.jpg",
+      "after": "/images/gallery/job5-after.jpg"
+    },
+    {
+      "title": "Landscaped Yard Mow — Kannapolis, NC",
+      "before": "/images/gallery/job6-before.jpg",
+      "after": "/images/gallery/job6-after.jpg"
     }
   ]
 }
