@@ -234,6 +234,10 @@
   .review-card cite{font-family:'JetBrains Mono',monospace;font-size:0.78rem;font-style:normal;color:var(--lime);}
   .review-cta{margin-top:32px;display:flex;flex-direction:column;gap:8px;align-items:flex-start;}
   .review-cta-note{font-size:0.85rem;color:rgba(255,255,255,0.6);}
+  .ls-stat{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:0.9rem;color:var(--lime);flex-wrap:wrap;}
+  .ls-stat .stars{letter-spacing:2px;}
+  .ls-stat .divider{color:rgba(255,255,255,0.3);}
+  .ls-stat .count{color:rgba(255,255,255,0.75);}
 
   /* ---------- Referral strip ---------- */
   .referral-strip{background:var(--lime);padding:22px 0;}
@@ -432,8 +436,9 @@
 <section id="reviews" class="testimonial-strip">
   <div class="wrap">
     <span class="section-eyebrow" style="color:var(--lime);">What Customers Say</span>
-    <h2 style="color:var(--white);font-size:clamp(1.65rem,3.2vw,2.2rem);margin-bottom:28px;">Real feedback from real yards</h2>
-    <div class="review-grid" id="reviewGrid">
+    <h2 style="color:var(--white);font-size:clamp(1.65rem,3.2vw,2.2rem);margin-bottom:14px;">Real feedback from real yards</h2>
+    <div class="ls-stat" id="lawnstarterStat" style="display:none;"></div>
+    <div class="review-grid" id="reviewGrid" style="margin-top:24px;">
       <p class="ba-loading" style="color:rgba(255,255,255,0.6);">Loading reviews…</p>
     </div>
     <div class="review-cta">
@@ -588,6 +593,14 @@
       if (s.referralEnabled && s.referralText) {
         document.getElementById('referralText').textContent = s.referralText;
         document.getElementById('referralStrip').style.display = 'block';
+      }
+      if (s.lawnstarterRating && s.lawnstarterReviewCount) {
+        const rating = parseFloat(s.lawnstarterRating);
+        const fullStars = Math.round(rating);
+        const starStr = '★'.repeat(fullStars) + '☆'.repeat(5 - fullStars);
+        const statEl = document.getElementById('lawnstarterStat');
+        statEl.innerHTML = `<span class="stars">${starStr}</span> ${s.lawnstarterRating}/5 <span class="divider">·</span> <span class="count">${s.lawnstarterReviewCount} reviews on LawnStarter</span>`;
+        statEl.style.display = 'flex';
       }
     })
     .catch(() => { /* keep hardcoded fallback values already in the HTML */ });
