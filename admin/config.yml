@@ -21,6 +21,8 @@ collections:
           - { label: "Jobber Request Form URL (Quotes)", name: "quoteUrl", widget: "string" }
           - { label: "Jobber Client Hub URL (Pay/Login)", name: "payUrl", widget: "string" }
           - { label: "Google Review URL", name: "googleReviewUrl", widget: "string" }
+          - { label: "LawnStarter Average Rating (e.g. 4.6)", name: "lawnstarterRating", widget: "string", required: false }
+          - { label: "LawnStarter Review Count (e.g. 36)", name: "lawnstarterReviewCount", widget: "string", required: false }
           - { label: "Website (display text)", name: "website", widget: "string" }
           - { label: "Service Area (display text)", name: "serviceArea", widget: "text" }
           - { label: "Show Referral Line?", name: "referralEnabled", widget: "boolean", default: true }
