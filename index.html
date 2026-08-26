@@ -52,7 +52,8 @@
     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lawn Mowing" } },
     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Weed Trimming" } },
     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Edging" } },
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Blowing / Cleanup" } }
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Blowing / Cleanup" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hedge & Shrub Trimming" } }
   ]
 }
 </script>
@@ -152,6 +153,7 @@
   .cut-card.warn{background:#17301F;color:var(--white);}
   .cut-card .tag{font-family:'JetBrains Mono',monospace;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--mid);}
   .cut-card.warn .tag{color:var(--lime);}
+  .hedge-card .tag{font-family:'JetBrains Mono',monospace;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--mid);}
   .cut-card h4{margin:6px 0 8px;font-size:1.1rem;}
   .cut-card.warn h4{color:var(--white);}
   .cut-card .price{font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:600;margin:8px 0;}
@@ -162,6 +164,12 @@
   .og-tile{background:var(--white);border:1px solid rgba(23,48,31,0.1);border-radius:10px;padding:18px;text-align:center;}
   .og-tile .h{font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:#5B6B5C;margin-bottom:6px;}
   .og-tile .pct{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.4rem;color:var(--mid);}
+
+  .hedge-card{margin-top:24px;background:var(--white);border:1px solid rgba(23,48,31,0.1);border-radius:12px;padding:26px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;}
+  .hedge-card h4{font-size:1.1rem;margin:6px 0;}
+  .hedge-card p{font-size:0.9rem;color:#4A594B;max-width:480px;}
+  .hedge-card-cta{display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+  .hedge-card .price{font-size:1.15rem;font-weight:600;color:var(--dark);}
 
   /* ---------- Steps ---------- */
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
@@ -250,6 +258,8 @@
   .footer-links a:hover{color:var(--lime);}
   .footer-area{font-size:0.82rem;color:rgba(255,255,255,0.6);margin-top:6px;}
   .footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:18px;font-size:0.78rem;color:rgba(255,255,255,0.5);}
+  .footer-legal a{color:rgba(255,255,255,0.65);text-decoration:underline;text-underline-offset:2px;}
+  .footer-legal a:hover{color:var(--lime);}
   .footer-badges{display:flex;align-items:center;gap:10px;padding-top:16px;font-size:0.78rem;color:rgba(255,255,255,0.5);}
   .footer-badges img{opacity:0.9;vertical-align:middle;}
 
@@ -269,6 +279,9 @@
     .menu-toggle{display:block;}
     .included-band{grid-template-columns:1fr;}
     .team-grid{grid-template-columns:1fr;}
+    .hedge-card{flex-direction:column;align-items:flex-start;}
+    .hedge-card-cta{align-items:flex-start;width:100%;}
+    .hedge-card-cta .btn{width:100%;text-align:center;}
     .form-row{grid-template-columns:1fr;}
     .hero{padding:76px 0 56px;}
     .phone-link{display:none;}
@@ -377,7 +390,7 @@
       <div class="step">
         <div class="step-num mono">03</div>
         <h3>Enjoy your yard</h3>
-        <p>Our crew shows up, does the work right, and you come home to a lawn that's done.</p>
+        <p>We show up, do the work right, and you come home to a lawn that's done.</p>
       </div>
     </div>
   </div>
@@ -460,7 +473,7 @@
       <div class="contact-info">
         <span class="section-eyebrow">Get In Touch</span>
         <h2>Request your free quote</h2>
-        <p>Tell us a bit about your property and what you need. We usually reply within one business day.</p>
+        <p>Tell us a bit about your property and what you need. We typically respond to service requests within one business day.</p>
         <div class="info-list">
           <div class="info-item">
             <div class="info-icon">📞</div>
@@ -480,7 +493,7 @@
           </div>
           <div class="info-item">
             <div class="info-icon">🛡️</div>
-            <div><h4>Fully Insured</h4><p>Licensed and insured for your peace of mind.</p></div>
+            <div><h4>Fully Insured</h4><p>Fully insured for your peace of mind.</p></div>
           </div>
         </div>
       </div>
@@ -525,6 +538,7 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 Jay's Home &amp; Lawn. All rights reserved.</span>
+      <span class="footer-legal"><a href="/terms">Terms &amp; Conditions</a> &nbsp;·&nbsp; <a href="/privacy">Privacy Policy</a></span>
       <span>Serving Rowan County, Kannapolis, Concord, China Grove, Landis, Salisbury &amp; Enochville.</span>
     </div>
   </div>
@@ -611,6 +625,7 @@
       `).join('');
       const m = p.maintenance || {};
       const f = p.firstCut || {};
+      const h = p.hedgeTrimming || {};
       el.innerHTML = `
         <div class="included-band">${included}</div>
         <table class="pricing-table">
@@ -640,6 +655,18 @@
           <p style="font-size:0.9rem;color:#4A594B;margin-bottom:4px;">For lawns beyond our standard mowing height, pricing adjusts based on grass height to account for extra time and equipment wear.</p>
           <div class="overgrowth-grid">${overgrowth}</div>
         </div>
+        ${h.title ? `
+        <div class="hedge-card">
+          <div class="hedge-card-text">
+            <span class="tag">Add-On Service</span>
+            <h4>${h.title}</h4>
+            <p>${h.description || ''}</p>
+          </div>
+          <div class="hedge-card-cta">
+            <div class="price mono">${h.price || 'Custom quote'}</div>
+            <a href="https://clienthub.getjobber.com/hubs/dbfac00c-827f-429d-aa66-43baa666ac0c/public/requests/5054840/new" target="_blank" rel="noopener" class="btn btn-primary">Request a Quote</a>
+          </div>
+        </div>` : ''}
       `;
     })
     .catch(() => {
