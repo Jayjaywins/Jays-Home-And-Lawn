@@ -614,7 +614,7 @@
       if (!members.length) { grid.innerHTML = '<p class="ba-loading">Team info coming soon.</p>'; return; }
       grid.innerHTML = members.map(m => `
         <div class="team-card">
-          <div class="team-photo"><img src="${m.photo}" alt="${m.name}"></div>
+          <div class="team-photo"><img src="${m.photo}" alt="${m.name}" loading="lazy" decoding="async"></div>
           <h3>${m.name}</h3>
           <div class="team-role">${m.role || ''}</div>
           <p>${m.bio || ''}</p>
@@ -760,8 +760,8 @@
       grid.innerHTML = jobs.map((job, i) => `
         <div class="ba-tile">
           <div class="ba-slider">
-            <img class="ba-after" src="${job.after}" alt="${job.title || 'After photo'}">
-            <img class="ba-before" src="${job.before}" alt="${job.title || 'Before photo'}">
+            <img class="ba-after" src="${job.after}" alt="${job.title || 'After photo'}" loading="lazy" decoding="async">
+            <img class="ba-before" src="${job.before}" alt="${job.title || 'Before photo'}" loading="lazy" decoding="async">
             <div class="ba-handle-line" style="left:50%"></div>
             <div class="ba-handle-dot" style="left:50%">↔</div>
             <span class="ba-tag ba-tag-before">Before</span>
