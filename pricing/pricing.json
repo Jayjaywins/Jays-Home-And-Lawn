@@ -5,6 +5,11 @@
     { "icon": "📐", "name": "Edging", "description": "Crisp, defined edges along walks, drives, and landscape beds." },
     { "icon": "💨", "name": "Blowing", "description": "Walkways, driveways, and patios cleared for a finished look." }
   ],
+  "hedgeTrimming": {
+    "title": "Hedge & Shrub Trimming",
+    "description": "Trimming and shaping for hedges and shrubs up to 5 feet tall, with cleanup of trimmings from the serviced area included. Haul-away is available for an additional charge. We don't take on tree work.",
+    "price": "Custom quote"
+  },
   "tiers": [
     { "size": "Up to 1/8 acre", "price": "$30" },
     { "size": "Up to 1/4 acre", "price": "$35" },
